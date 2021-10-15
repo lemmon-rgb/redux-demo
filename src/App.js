@@ -1,6 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Rediirect
+} from 'react-router-dom'
 import './App.css';
 
 function App() {
