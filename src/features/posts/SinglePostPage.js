@@ -2,15 +2,16 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { ReactionButtons } from './ReactionButton';
+import { selectPostById } from './postSlice';
 
 export const SinglePostPage = ({ match }) => {
   const { postId } = match.params;
 
-  const post = useSelector(state => {
-    console.log("🚀 ~ file: SinglePostPage.js ~ line 8 ~ SinglePostPage ~ state", state)
-    return state.posts.find(post => post.id === postId)
-  }
-  )
+  // const post = useSelector(state => {
+  //   console.log("🚀 ~ file: SinglePostPage.js ~ line 8 ~ SinglePostPage ~ state", state)
+  //   return state.posts.find(post => post.id === postId)
+  // })
+  const post = useSelector( state => selectPostById(state, postId) );
 
   if (!post) {
     return (

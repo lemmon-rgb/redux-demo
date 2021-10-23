@@ -16,13 +16,13 @@ export const AddPostForm = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [userId, setUserId] = useState('');
-
+  console.log(title, content, userId)
   const dispatch = useDispatch();
   const users = useSelector(state => state.users)
 
   const onTitleChanged = e => setTitle(e.target.value);
   const onContentChanged = e => setContent(e.target.value);
-  const onAuthorChanged = e => setUserId(e.target.value);
+  const onAuthorChanged = e =>  setUserId(e.target.value);
 
   const onSavePostClicked = () => {
     if (title && content) {
@@ -56,7 +56,7 @@ export const AddPostForm = () => {
         />
         <label htmlFor="postAuthor">作者：</label>
         <select id="postAuthor" value={userId} onChange={onAuthorChanged}>
-          <option value=""></option>
+          {/* <option value=""></option> */}
           {usersOptions}
         </select>
         <label htmlFor="postContent">内容：</label>

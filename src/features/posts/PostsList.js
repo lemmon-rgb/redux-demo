@@ -1,9 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { selectAllPosts } from './postSlice';
 
 export const PostsList = () => {
-  const posts = useSelector(state => state.posts)
+  // const posts = useSelector(state => state.posts)
+  const posts = useSelector(selectAllPosts)
 
   // 根据日期时间字符串，对帖子安装时间倒序进行排序
   const orderedPosts = posts.slice().sort((a, b) => b.date.localeCompare(a.date))
